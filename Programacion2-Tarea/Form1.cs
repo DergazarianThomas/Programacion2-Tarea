@@ -12,8 +12,7 @@ namespace Programacion2_Tarea
 {
     public partial class form1 : Form
     {
-        const string ERROR_FECHA = "La fecha ingresada no es valida";
-       
+
         public form1()
         {
             
@@ -21,7 +20,18 @@ namespace Programacion2_Tarea
             
         }
 
-        // Funcion para que solo se admitan numeros //
+        // Definicion de variables //
+
+        public int mes;
+        public int dia;
+        public int año;
+        public string mesFinal;
+
+        // Posibles errores de usuarios //
+
+        const string ERROR_FECHA = "La fecha ingresada no es valida";
+
+        // Validacion para que solo se admitan numeros en los textboxs //
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -32,12 +42,14 @@ namespace Programacion2_Tarea
 
         }
 
+        // le suma un dia a la fecha ingresada teniendo en cuenta los cambios de mes y/o año para luego ingresarlo en la label //
+
         private void btnConvertir_Click(object sender, EventArgs e)
         {
-            int mes = int.Parse(txtMes.Text);
-            int dia = int.Parse(txtDia.Text);
-            int año = int.Parse(txtAño.Text);
-            string mesFinal = "";
+            mes = int.Parse(txtMes.Text);
+            dia = int.Parse(txtDia.Text);
+            año = int.Parse(txtAño.Text);
+            mesFinal = "";
             bool i = true;
 
             if (mes == 1 && 1 <= dia && dia <= 30)
